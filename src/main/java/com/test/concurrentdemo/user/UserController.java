@@ -33,6 +33,8 @@ public class UserController {
 
 
 
+
+
     @GetMapping("/test2")
     public synchronized void test2() {
         UserPo userPo = dao.selectById(1);
@@ -43,9 +45,21 @@ public class UserController {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     static Lock lock = new ReentrantLock();
-
-
 
     @GetMapping("/test3")
     public void test3() {
