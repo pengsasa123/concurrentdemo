@@ -13,8 +13,8 @@ public class SynchronizedTest {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    lock.notify();
                 }
+                lock.notify();
             }
         });
 
