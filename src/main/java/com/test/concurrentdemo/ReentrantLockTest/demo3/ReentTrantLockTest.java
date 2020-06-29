@@ -12,7 +12,7 @@ public class ReentTrantLockTest {
 
     public static void main(String[] args) {
         for (int i = 0; i < 100; i++) {
-            new Thread(() -> test()).start();
+            new Thread(ReentTrantLockTest::test).start();
         }
     }
 
