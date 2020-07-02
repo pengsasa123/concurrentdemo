@@ -37,7 +37,7 @@ class Horse implements Runnable {
     }
 
     public String tracks() {
-        StringBuilder s = new StringBuilder();
+        StringBuffer s = new StringBuffer();
         for(int i = 0; i < getStrides(); i++) {
             s.append("*");
         }
@@ -58,7 +58,7 @@ public class HorseRace implements Runnable {
 
     @Override
     public void run() {
-        StringBuilder s = new StringBuilder();
+        StringBuffer s = new StringBuffer();
         //打印赛道边界
         for(int i = 0; i < FINISH_LINE; i++) {
             s.append("=");
