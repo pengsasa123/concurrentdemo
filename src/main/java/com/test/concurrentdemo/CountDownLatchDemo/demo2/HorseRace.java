@@ -16,7 +16,7 @@ class Horse implements Runnable {
     private static int counter = 0;
     private final int id = counter++;
     private int strides = 0;
-    private static Random rand = new Random(47);
+    private static Random rand = new Random();
     private static CyclicBarrier barrier;
 
     public Horse(CyclicBarrier b) { barrier = b; }
