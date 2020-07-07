@@ -1,9 +1,6 @@
 package com.test.concurrentdemo.CompletableFutureDemo;
 
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
+import java.util.concurrent.*;
 
 /**
  * runAsync  和 supplyAsync
@@ -14,11 +11,22 @@ import java.util.concurrent.TimeoutException;
  * </li>
  */
 public class CompletableFutureTest1 {
+
+    static ThreadPoolExecutor pool = new ThreadPoolExecutor(4, 4, 0,
+        TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>(1000), new ThreadPoolExecutor.AbortPolicy());
+
     public static void main(String[] args) throws ExecutionException, InterruptedException, TimeoutException {
 
         CompletableFuture.runAsync(() -> {
-            System.out.println("我是无返回值的future");
+            System.out.println(Thread.currentThread().getName());
+            System.out.println("我是无返回值的future,默认自带线程池");
         });
+
+        CompletableFuture.runAsync(() -> {
+            System.out.println(Thread.currentThread().getName());
+            System.out.println("我是无返回值的future,自定义线程池");
+        }, pool);
+
 
         CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
             System.out.println("我是有返回值的future");
