@@ -37,22 +37,28 @@ public class ThreadPoolExecutorTest {
     );
 
     public static void main(String[] args) {
-        System.out.println(availableProcessors);
         for (int i = 0; i < 10; i++) {
             poolExecutor.execute(() -> System.out.println(Thread.currentThread().getName()));
         }
 
-       /* for (int i = 0; i < 10; i++) {
-            poolExecutor.execute(()->{
+        /*for (int i = 0; i < 10; i++) {
+            poolExecutor.execute(() -> {
                 //如果某个任务执行出现异常，
                 // 那么执行任务的线程会被关闭，而不是继续接收其他任务。
                 // 然后会启动一个新的线程来代替它。
                 if (Thread.currentThread().getName().equals("老王2号")) {
-                    int j = 1/0;
+                    int j = 1 / 0;
                 }
                 System.out.println(Thread.currentThread().getName());
             });
         }*/
+
+        /*poolExecutor.submit(() -> {
+            //execute:会抛出异常,submit: 不会抛出异常
+            System.out.println(Thread.currentThread().getName());
+            int j = 1 / 0;
+        });*/
+
     }
 
 }
