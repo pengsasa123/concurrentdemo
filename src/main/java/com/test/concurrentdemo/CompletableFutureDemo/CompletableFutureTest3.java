@@ -11,7 +11,7 @@ import java.util.concurrent.ExecutionException;
 public class CompletableFutureTest3 {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 
-       /* CompletableFuture<Integer> future = CompletableFuture.supplyAsync(() -> {
+        CompletableFuture<Integer> future = CompletableFuture.supplyAsync(() -> {
             System.out.println("我进来啦");
             int i = 1 / 0;
             System.out.println("我出去啦");
@@ -21,9 +21,9 @@ public class CompletableFutureTest3 {
             System.out.println(e);
             return 2;
         });
-        System.out.println(future.get());*/
+        System.out.println(future.get());
 
-        CompletableFuture<Integer> future = CompletableFuture.supplyAsync(() -> {
+        /*CompletableFuture<Integer> future = CompletableFuture.supplyAsync(() -> {
             System.out.println("我进来啦");
             int i = 1 / 0;
             System.out.println("我出去啦");
@@ -36,7 +36,7 @@ public class CompletableFutureTest3 {
             System.out.println("result结果是:" + r);
             System.out.println("我出来啦");
         });
-        System.out.println("最终结果是:" + future.get());
+        System.out.println("最终结果是:" + future.get());*/
 
     }
 }
