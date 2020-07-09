@@ -6,7 +6,8 @@ import java.util.concurrent.ExecutionException;
 /**
  * 异常处理
  * exceptionally = try catch 里面catch的片段
- * whenComplete = finaly
+ * whenComplete = finaly (无返回值)
+ * handle = finaly (有返回值)
  */
 public class CompletableFutureTest3 {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
