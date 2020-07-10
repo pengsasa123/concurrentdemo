@@ -17,7 +17,7 @@ public class ThreadPoolExecutorTest {
 
     private static AtomicInteger count = new AtomicInteger(1);
     /**
-     * 基于LinkedBlockingQueue的容量为500
+     * 基于LinkedBlockingQueue
      */
     private static BlockingQueue queue = new LinkedBlockingQueue(20);
 
