@@ -12,21 +12,12 @@ import java.util.concurrent.*;
  */
 public class CompletableFutureTest1 {
 
-    static ThreadPoolExecutor pool = new ThreadPoolExecutor(4, 4, 0,
-        TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>(1000), new ThreadPoolExecutor.AbortPolicy());
-
     public static void main(String[] args) throws ExecutionException, InterruptedException, TimeoutException {
 
         CompletableFuture.runAsync(() -> {
             System.out.println(Thread.currentThread().getName());
-            System.out.println("我是无返回值的future,默认自带线程池");
+            System.out.println("我是无返回值的future");
         });
-
-        CompletableFuture.runAsync(() -> {
-            System.out.println(Thread.currentThread().getName());
-            System.out.println("我是无返回值的future,自定义线程池");
-        }, pool);
-
 
         CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
             System.out.println("我是有返回值的future");
