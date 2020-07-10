@@ -14,10 +14,7 @@ public class CompletableFutureTest1 {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException, TimeoutException {
 
-        CompletableFuture.runAsync(() -> {
-            System.out.println(Thread.currentThread().getName());
-            System.out.println("我是无返回值的future");
-        });
+        CompletableFuture.runAsync(() -> System.out.println("我是无返回值的future"));
 
         CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
             System.out.println("我是有返回值的future");
