@@ -23,7 +23,7 @@ public class ThreadPoolExecutorTest {
 
     static ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(
         availableProcessors * 2,
-        availableProcessors * 4 + 1,
+        availableProcessors * 2,
         0,
         TimeUnit.SECONDS,
         //阻塞队列
@@ -48,6 +48,11 @@ public class ThreadPoolExecutorTest {
                 // 然后会启动一个新的线程来代替它。
                 if (Thread.currentThread().getName().equals("老王2号")) {
                     int j = 1 / 0;
+                }
+                try {
+                    Thread.sleep(10);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
                 System.out.println(Thread.currentThread().getName());
             });

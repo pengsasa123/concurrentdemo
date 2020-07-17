@@ -12,14 +12,17 @@ import java.util.concurrent.TimeUnit;
  * 赛马
  */
 class Horse implements Runnable {
-
-    private static int counter = 0;
-    private final int id = counter++;
+    //马的牌号
+    private int id ;
+    //马的步数
     private int strides = 0;
     private static Random rand = new Random();
     private static CyclicBarrier barrier;
 
-    public Horse(CyclicBarrier b) { barrier = b; }
+    public Horse(CyclicBarrier b, int id) {
+        barrier = b;
+        this.id = id;
+    }
 
     @Override
     public void run() {
@@ -72,6 +75,7 @@ public class HorseRace implements Runnable {
         for(Horse horse : horses) {
             if(horse.getStrides() >= FINISH_LINE) {
                 System.out.println(horse + "won!");
+                //手动关闭线程池
                 exec.shutdownNow();
                 return;
             }
@@ -87,7 +91,7 @@ public class HorseRace implements Runnable {
     public static void main(String[] args) {
         CyclicBarrier barrier = new CyclicBarrier(7, new HorseRace());
         for(int i = 0; i < 7; i++) {
-            Horse horse = new Horse(barrier);
+            Horse horse = new Horse(barrier, i);
             horses.add(horse);
             exec.execute(horse);
         }

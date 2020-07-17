@@ -35,6 +35,16 @@ public class UserController {
 
 
 
+
+
+
+
+
+
+
+
+
+
     @GetMapping("/test2")
     public synchronized void test2() {
         UserPo userPo = dao.selectById(1);
