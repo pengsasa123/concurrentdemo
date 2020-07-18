@@ -17,11 +17,12 @@ import java.util.concurrent.ExecutionException;
 public class CompletableFutureTest2 {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 
-        CompletableFuture<Integer> future = CompletableFuture.supplyAsync(() -> {
+       /* CompletableFuture<Integer> future = CompletableFuture.supplyAsync(() -> {
             int result = new Random().nextInt(100);
             System.out.println(result);
             try {
                 Thread.sleep(2000);
+                int i = 1/0;
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -32,9 +33,9 @@ public class CompletableFutureTest2 {
             return i;
         });
 
-        System.out.println(future.get());
+        System.out.println(future.get());*/
 
-        /*CompletableFuture<Integer> future = CompletableFuture.supplyAsync(() -> {
+        CompletableFuture<Integer> future = CompletableFuture.supplyAsync(() -> {
             int result = new Random().nextInt(100);
             System.out.println(result);
             try {
@@ -54,7 +55,7 @@ public class CompletableFutureTest2 {
             }
         });
 
-        System.out.println(future.get());*/
+        System.out.println(future.get());
 
     }
 }

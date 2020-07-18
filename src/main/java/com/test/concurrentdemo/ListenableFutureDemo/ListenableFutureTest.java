@@ -19,7 +19,7 @@ public class ListenableFutureTest {
         ListenableFuture<String> future = executorService.submit(() -> {
             System.out.println("come on");
             Thread.sleep(2000);
-            //int i =1/0;
+            int i =1/0;
             return "123";
         });
 

@@ -47,7 +47,7 @@ public class CountDownLatchTest {
         System.out.println("最终计数器值为: " + countDownLatch.getCount());
         System.out.println("主线程执行完毕");
 
-        /*pool.execute(()->{
+        pool.execute(()->{
             try {
                 countDownLatch.await();
             } catch (InterruptedException e) {
@@ -55,7 +55,7 @@ public class CountDownLatchTest {
             } finally {
                 System.out.println(11);
             }
-        });*/
+        });
         //手动关闭线程池
         pool.shutdown();
     }

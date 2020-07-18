@@ -1,9 +1,6 @@
 package com.test.concurrentdemo.ThreadPoolExecutorDemo;
 
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -36,12 +33,12 @@ public class ThreadPoolExecutorTest {
         }
     );
 
-    public static void main(String[] args) {
-        for (int i = 0; i < 10; i++) {
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
+        for (int i = 0; i < 100; i++) {
             poolExecutor.execute(() -> System.out.println(Thread.currentThread().getName()));
         }
 
-        /*for (int i = 0; i < 10; i++) {
+       /* for (int i = 0; i < 10; i++) {
             poolExecutor.execute(() -> {
                 //如果某个任务执行出现异常，
                 // 那么执行任务的线程会被关闭，而不是继续接收其他任务。
@@ -58,11 +55,12 @@ public class ThreadPoolExecutorTest {
             });
         }*/
 
-        /*poolExecutor.submit(() -> {
-            //execute:会抛出异常,submit: 不会抛出异常
-            System.out.println(Thread.currentThread().getName());
-            int j = 1 / 0;
-        });*/
+//        Future<?> submit = poolExecutor.submit(() -> {
+//            //execute:会抛出异常,submit: 不会抛出异常
+//            System.out.println(Thread.currentThread().getName());
+//            int j = 1 / 0;
+//        });
+//        System.out.println(submit.get());
 
     }
 

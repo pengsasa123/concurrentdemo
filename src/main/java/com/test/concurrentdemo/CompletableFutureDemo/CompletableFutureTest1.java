@@ -26,7 +26,7 @@ public class CompletableFutureTest1 {
             return "future";
         });
 
-        System.out.println(future.get());
-        //System.out.println(future.get(1, TimeUnit.SECONDS));
+//        System.out.println(future.get());
+        System.out.println(future.get(1, TimeUnit.SECONDS));
     }
 }

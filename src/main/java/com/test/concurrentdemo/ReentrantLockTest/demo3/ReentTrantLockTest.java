@@ -8,7 +8,7 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class ReentTrantLockTest {
 
-    static ReentrantLock lock = new ReentrantLock();
+    static ReentrantLock lock = new ReentrantLock(true);
 
     public static void main(String[] args) {
         for (int i = 0; i < 100; i++) {
