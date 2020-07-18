@@ -43,10 +43,10 @@ public class CompletableFutureTest4 {
 
         System.out.println(future.get());
 
-        /*//等待所有任务完成 不然一直阻塞
+        //等待所有任务完成 不然一直阻塞
         //CompletableFuture.allOf(future1, future2).join();
         //其中一个完成就结束
-        CompletableFuture.anyOf(future1, future2).join();*/
+        //CompletableFuture.anyOf(future1, future2).join();
 
     }
 }
