@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * 模拟100个并发 看看会发生什么
+ */
 @AllArgsConstructor
 @RestController
 @RequestMapping("/user")
