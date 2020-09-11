@@ -29,7 +29,7 @@ public class ThreadPoolExecutorTest2 {
         //阻塞队列
         queue,
         //线程工厂
-        new MyTheadFactory("mypool-")
+        new MyTheadFactory("qingzu")
     );
 
     public static void main(String[] args) {

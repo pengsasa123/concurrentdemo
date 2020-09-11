@@ -14,14 +14,14 @@ public class MyTheadFactory implements ThreadFactory {
     private final String namePrefix;
 
     MyTheadFactory() {
-        this("pool-");
+        this("my");
     }
 
     MyTheadFactory(String name) {
         SecurityManager s = System.getSecurityManager();
         group = (s != null) ? s.getThreadGroup() :
             Thread.currentThread().getThreadGroup();
-        namePrefix = name +
+        namePrefix = name + "-pool-" +
             poolNumber.getAndIncrement() +
             "-thread-";
     }
