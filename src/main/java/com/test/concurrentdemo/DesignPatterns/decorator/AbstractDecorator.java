@@ -1,4 +1,4 @@
-package com.test.concurrentdemo.decorator;
+package com.test.concurrentdemo.DesignPatterns.decorator;
 
 //抽象装饰器类
 public class AbstractDecorator extends ABattercake{

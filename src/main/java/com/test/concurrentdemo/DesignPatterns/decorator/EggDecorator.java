@@ -1,4 +1,4 @@
-package com.test.concurrentdemo.decorator;
+package com.test.concurrentdemo.DesignPatterns.decorator;
 
 //具体的装饰器实现类(鸡蛋类)
 public class EggDecorator extends AbstractDecorator{

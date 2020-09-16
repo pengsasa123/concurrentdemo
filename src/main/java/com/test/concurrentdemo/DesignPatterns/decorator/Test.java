@@ -1,4 +1,4 @@
-package com.test.concurrentdemo.decorator;
+package com.test.concurrentdemo.DesignPatterns.decorator;
 
 public class Test {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.test.concurrentdemo.decorator;
+package com.test.concurrentdemo.DesignPatterns.decorator;
 
 /**
  * 装饰者模式
