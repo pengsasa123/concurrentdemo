@@ -12,8 +12,8 @@ import java.util.Set;
  * zset demo
  */
 @RestController
-@RequestMapping("/redis")
-public class RedisDemo {
+@RequestMapping("/redis/zset")
+public class RedisZsetController {
 
     @Resource
     private ZSetOperations<String, Object> zSetOperations;
