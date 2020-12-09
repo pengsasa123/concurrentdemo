@@ -31,6 +31,9 @@ public class RedisZsetController {
 
     @GetMapping("/test2")
     public void test2() {
+        // 获取目标的得分
+        Double score = zSetOperations.score("1234", 4);
+        System.out.println(score);
         // 按照下标从小到大
         Set<Object> range = zSetOperations.range("1234", 0, -1);
         System.out.println(range);
