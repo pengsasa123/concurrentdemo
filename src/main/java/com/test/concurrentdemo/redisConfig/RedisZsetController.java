@@ -10,6 +10,7 @@ import java.util.Set;
 
 /**
  * zset demo
+ * 应用场景:可以做排行榜,延迟队列等
  */
 @RestController
 @RequestMapping("/redis/zset")
