@@ -85,4 +85,20 @@ public class RedisBitMapController {
         return all.cardinality();
     }
 
+    //public void set(int pos): 位置pos的字位设置为true。
+    // public void set(int bitIndex, boolean value) 将指定索引处的位设置为指定的值。
+    // public void clear(int pos): 位置pos的字位设置为false。
+    // public void clear() : 将此 BitSet 中的所有位设置为 false。
+    // public int cardinality() 返回此 BitSet 中设置为 true 的位数。
+    // public boolean get(int pos): 返回位置是pos的字位值。
+    // public void and(BitSet other): other同该字位集进行与操作，结果作为该字位集的新值。
+    // public void or(BitSet other): other同该字位集进行或操作，结果作为该字位集的新值。
+    // public void xor(BitSet other): other同该字位集进行异或操作，结果作为该字位集的新值。
+    // public void andNot(BitSet set) 清除此 BitSet 中所有的位,set - 用来屏蔽此 BitSet 的 BitSet
+    // public int size(): 返回此 BitSet 表示位值时实际使用空间的位数。
+    // public int length() 返回此 BitSet 的“逻辑大小”：BitSet 中最高设置位的索引加 1。
+    // public int hashCode(): 返回该集合Hash 码， 这个码同集合中的字位值有关。
+    // public boolean equals(Object other): 如果other中的字位同集合中的字位相同，返回true。
+    // public Object clone() 克隆此 BitSet，生成一个与之相等的新 BitSet。
+    // public String toString() 返回此位 set 的字符串表示形式。
 }
