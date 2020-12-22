@@ -64,4 +64,25 @@ public class RedisBitMapController {
     private byte[] get(final String key) {
         return stringRedisTemplate.execute((RedisCallback<byte[]>) connection -> connection.get(key.getBytes()));
     }
+
+    /**
+     * bitset 用法 (统计活跃用户)
+     *
+     * @param action 可以理解为key
+     * @param dates 时间集合key的组成部分
+     * @return
+     */
+    public int uniqueCount(String action, String... dates) {
+        // OR：一个为1返回1-->|
+        // XOR：只有一个1返回1否则返回0-->^
+        // AND：两个都是1返回1否则返回0-->&
+        BitSet all = new BitSet();
+        for (String date : dates) {
+            String key = action + ":" + date;
+            BitSet users = BitSet.valueOf(get(key));
+            all.or(users);
+        }
+        return all.cardinality();
+    }
+
 }
