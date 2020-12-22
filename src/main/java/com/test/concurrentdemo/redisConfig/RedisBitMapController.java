@@ -48,9 +48,10 @@ public class RedisBitMapController {
         Long aLong = bitCount(KEY);
         System.out.println(aLong);
         // 结合bitset
-        byte[] bytes = valueOperations.get(KEY).toString().getBytes();
+        byte[] bytes = get(KEY);
         BitSet bitSet = BitSet.valueOf(bytes);
-        System.out.println(bitSet.length());
+        // 获取是1的个数
+        System.out.println(bitSet.cardinality());
         boolean b = bitSet.get(99998);
         System.out.println(b);
 
@@ -58,5 +59,9 @@ public class RedisBitMapController {
 
     private Long bitCount(String key) {
         return stringRedisTemplate.execute((RedisCallback<Long>) connection -> connection.bitCount(key.getBytes()));
+    }
+
+    private byte[] get(final String key) {
+        return stringRedisTemplate.execute((RedisCallback<byte[]>) connection -> connection.get(key.getBytes()));
     }
 }
