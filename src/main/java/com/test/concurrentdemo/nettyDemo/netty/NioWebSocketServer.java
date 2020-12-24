@@ -5,10 +5,21 @@ import io.netty.channel.Channel;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.ApplicationListener;
+import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.stereotype.Component;
 
+/**
+ * ApplicationListener<ContextRefreshedEvent>
+ *     等待所有的bean初始化完毕时,加载
+ *     执行顺序 @@PostConstruct > ApplicationListener<ContextRefreshedEvent>
+ */
 @Slf4j
-public class NioWebSocketServer {
-    private void init() {
+@Component
+public class NioWebSocketServer implements ApplicationListener<ContextRefreshedEvent> {
+
+    @Override
+    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         log.info("正在启动websocket服务器");
         NioEventLoopGroup boss = new NioEventLoopGroup();
         NioEventLoopGroup work = new NioEventLoopGroup();
@@ -28,9 +39,5 @@ public class NioWebSocketServer {
             work.shutdownGracefully();
             log.info("websocket服务器已关闭");
         }
-    }
-
-    public static void main(String[] args) {
-        new NioWebSocketServer().init();
     }
 }
