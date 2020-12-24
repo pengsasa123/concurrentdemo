@@ -13,6 +13,8 @@ import org.springframework.stereotype.Component;
  * ApplicationListener<ContextRefreshedEvent>
  *     等待所有的bean初始化完毕时,加载
  *     执行顺序 @@PostConstruct > ApplicationListener<ContextRefreshedEvent>
+ *
+ *         <p>注意!!!!如果项目有多个ApplicationContext的话就会执行多次</p>
  */
 @Slf4j
 @Component
