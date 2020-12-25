@@ -26,7 +26,7 @@ public class NioWebSocketChannelInitializer extends ChannelInitializer<SocketCha
         // arg0：单位为：秒，读空闲超时，(超过一定的时间会发送对应的时间消息)
         // arg1：单位为：秒，写空闲超时
         // arg2：单位为：秒，读写空闲超时
-        pipeline.addLast(new IdleStateHandler(40,60,120));
+        pipeline.addLast(new IdleStateHandler(10,20,30));
 
         // ---------------支持 WebSocket---------------
         // 本handler会帮你处理一些握手动作：handshaking (close,ping,pong)ping+pong = 心跳
